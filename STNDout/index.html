@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>STNDout | Ecommerce Website</title>
     <link rel="stylesheet" href="style.css"
@@ -23,7 +24,7 @@
                 </div>
                 
                     <nav>
-                        <ul>
+                        <ul id="MenuItems">
                                 <li><a href="">Home</a>
                                 <li><a href="">Products</a>
                                 <li><a href="">About</a>
@@ -32,6 +33,7 @@
                         </ul>
                     </nav>
                     <img src="images/siteimages/cart.png" alt="" width="30px" height="30px">
+                    <img src="images/siteimages/menuicon.png" clas="menu-icon" onclick="menutoggle()" height="30px">
                     </div>
                         <div class="row">
                             <div class="col-2">
@@ -305,6 +307,25 @@
         </div>
     </div>
 </div>
+<!----js for toggle menu---->
+<script>
+    var MenuItems = document.getElementById("MenuItems");
+    MenuItems.style.maxHeight = "0px";
+    function menutoggle(){
+        if (MenuItems.style.maxHeight == "0px")
+        {
+            MenuItems.style.maxHeight = "200px";
+
+
+        }
+        else
+        {
+            MenuItems.style.maxHeight = "0px";
+        }
+
+        
+    }
+    </script>
    </body>
 
 
