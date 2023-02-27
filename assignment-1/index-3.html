@@ -3,18 +3,16 @@
 
 <head>
     <title>Html Registration Form</title>
-    <style>
-        #divitem {
-            margin: 50px;
-            border: 5px solid blue;
-            width: 100px;
-        }
-    </style>
+    <link rel="stylesheet type="text/css" href="index3.css">
 </head>
-
 <body>
+    <div>
     <h1 class="mainHeading">Registration Form</h1>
     <h4 class=subheading> Please fill user Infomation in the form below</h4>
+   
+</div>
+
+
     <form id="form" action="" method="get">
         <p>
            
@@ -28,13 +26,13 @@
            
             <input type="email" id="email" name="email" placeholder="email"/>
         </p>
-        <!-- <input type="submit" Id="btn-submit" class="btn-1" value="submit form"/>  -->
-        <button class="btn-1" id="btn-submit" style="color:red; padding: 5px;">Submit Form</button>
-        
-    </form>   
 
-</body>
-<script>
+        <!-- <input type="submit" Id="btn-submit" class="btn-1" value="submit form"/>  -->
+        <button onclick="myFunction(), myFunction2()" class="btn-1" id="Submit" style="color:red; padding: 5px;">Submit Form</button>
+        <h3 id="message"></h3>    
+    </form>  
+  <script>
+        
 document.querySelector('form').addEventListener('submit', function(event){
     event.preventDefault()
     
@@ -50,6 +48,27 @@ document.querySelector('form').addEventListener('submit', function(event){
 
     console.log(email)
 })
-
+function myFunction() {
+   let form = document.querySelector("#email" );
+  
+  
+    let message = document.querySelector("#message");
+    
+    
+    message.innerHTML = email.value ;  
+}
+function myFunction2() {
+   let form = document.querySelector("#second-name" );
+  
+  
+    let message = document.querySelector("#message");
+    
+    
+    message.innerHTML = second-name.value ;  
+}
 </script>
+
+
+</body>
+
 </html>
