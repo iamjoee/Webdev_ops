@@ -1,37 +1,28 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Html Form with onclick Div </title>
-    <style>
-        #divitem {
-            margin: 50px;
-            border: 5px solid blue;
-            width: 100px;
-        }
-    </style>
+  <title>form test</title>
+  <link rel="stylesheet" href="index.css">
 </head>
-
 <body>
-    <h1 class="mainHeading">Registration Form</h1>
-    <h3 class=subheading> Please fill user Info in the form below</h3>
-    <form id="Myform" action="https://www.htmldog.com/" method="get">
-        <p>
-            <label for="">First Name</label><br />
-            <input type="text" name="firstname" />
-        </p>
-        <p>
-            <label for="">Second Name</label><br />
-            <input type="text" name="secondname" />
-        </p>
-        <p>
-            <label for="">Email Address</label><br>
-            <input type="email" name="email" />
-        </p>
-        <button class="btn-1" id="btn-submit" style="color:red; padding: 5px;">Submit Form</button>
-        <!-- <input type="submit" id="btn-submit" class="btn-1" value="submit form"/>  -->
-    </form>
-    <!-- <script src="main.js"></script> -->
-</body>
+  <header>
+    <h3>Form</h3>
+  </header>
 
+  <section class="container">
+    <form id="my-form" method="get">
+      <h4>Please fill in the form</h4>
+      <div class="msg"></div>
+      <div>
+        <input type="text" id="name" placeholder="Full name">
+      </div>
+      <div>
+        <input type="text" id="email" placeholder="Email">
+      </div>
+      <input class="btn" type="submit" value="Submit">
+    </form>
+    <ol id="users"></ol>
+  </section>
+  <script src="js/main.js"></script>
+</body>
 </html>
