@@ -54,9 +54,9 @@ console.log({user})
 let isItWorking = false
 console.assert(isItWorking, "this is the reason why")
 
-*/
+
 
 //counting
 for(i=0; i< 50; i++){
     console.count()
-}
+    */
