@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<style>
+   
+        <title>Html Form with onclick Div</title>
+    #divitem {
+        margin: 50px;
+        border: 5px solid blue;
+        width: 100px;
+    }
+   
+</style>
+</head>
+<body>
+
+
+   
+
+    <form action="" method="get">
+        <p>
+            <label for="">First Name</label><br/>
+            <input type="text" name="firstname" />
+        </p>
+        <p>
+            <label for="">Second Name</label><br/>
+            <input type="text" name="secondname" />
+        </p>
+
+        <p>
+            <label for="">Email Address</label><br>
+            <input type="email" name="email" />
+        </p>
+        <a href="#" onclick="submitForm()">Submit Here</a>
+
+       
+
+    </form>
+    <br>
+    <script>
+        function submitForm() {
+            let form = document.getElementById("form__submit");
+            form.submit();
+        }
+    </script>
+ 
+</body>
+</html>
