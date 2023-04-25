@@ -28,6 +28,17 @@
             </div>
 
         </div>
-
+        <script src="jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $.ajax({
+                    method: 'GET',
+                    url: 'https://jsonplaceholder.typicode.com/todos/1',
+                    success: function(data){
+                        console.log(data);
+                    }
+                })
+            });
+        </script>
     </body>
 </html>
