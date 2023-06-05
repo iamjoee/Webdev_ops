@@ -30,7 +30,7 @@ header {
   }
   #search-form {
     display: flex;
-    align-items: center;
+    align-items: right;
   }
   
   #search-input {
@@ -89,3 +89,39 @@ header {
     top: 50%;
     transform: translateY(-50%);
   }
+  /* .contact-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #00a0e9;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .contact-button:hover {
+    background-color: #3d2ae7;
+  }
+  
+   */
+   #contact-details {
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+  }
+  .image-container {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  img {
+    margin-right: 20px;
+  }
+  
+  p {
+    margin: 0;
+  }
+  products {
+    color: palegreen;
+  }
+
+  

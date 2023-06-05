@@ -9,41 +9,36 @@
   <link rel="icon" type="image/x-icon" href="assets/JTech.png">
 </head>
 
-
 <body>
   <header class="header">
     <div class="wrapper">
       <div class="logo">
-        <img src="assets/logo.png" style="width:20%" >
+        <img src="assets/logo.png" style="width:20%">
       </div>
       <div class="header-text">
         <h1>JTechsolutions</h1>
       </div>
     </div>
   </header>
-
-  <form id="search-form">
-    <input type="text" id="search-input" placeholder="Search...">
-    <button type="submit">Search</button>
-  </form>
-
   <img src="">
-  <img src="assets/Technology1.jpg" alt="Strengthen your technology portfolio">
+  <img src="assets/Technology1.jpg" alt="Strengthen your technology portfolio" width="1180px">
   <nav>
+
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#products">Products</a></li>
+      <li><a href="#home" >Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="products.html" >Products</a></li>
       <li><a href="contact us.html">Contact Us</a></li>
     </ul>
+    <form id="search-form">
+      <input type="text" id="search-input" placeholder="Search...">
+      <button type="submit">Search</button>
+    </form>
   </nav>
   <section id="about">
     <h2>Why clients choose JTechsolutions</h2>
     <p>We build digital assets and come up with solutions to your everday problems as spotting untapped markets and
       unexplored technology avenues is key to business growth and survival.
-      JTechsolutions competitive intelligence solution provides detailed competitor and industry insights that can be
-      combined with your own unique sets of data to create differentiated strategies and actions. It is specifically
-      designed to answer questions of why one competitor is doing better than others and what opportunities lay ahead.
       Being able to make informed decisions based on data is crucial for all business processes — from sales to supply
       chain to finance, and more. We understand that having this information readily available makes it easier for you
       to make the right decision at the right time. This is exactly why some of the world’s leading organizations rely
@@ -52,17 +47,14 @@
   </section>
   <section id="products">
     <ul>
-    <a href="#products">
+      <a href="#products">
         <h2>Products</h2>
       </a>
-      
       <li><a href="products.html">AI solutions</a></li>
       <li><a href="products.html">UI/UX development</a></li>
       <li><a href="products.html">E-commerce technology solutions</a></li>
       <li><a href="products.html">Digital transformation solutions</a></li>
-     
     </ul>
-
   </section>
   <section id="services">
     <ul>
@@ -70,22 +62,36 @@
         <h2>Services</h2>
       </a>
       <li><a href="services.html">Sales intelligence</a></li>
-
       <li><a href="services.html">Competitive intelligence</a></li>
-
       <li><a href="services.html">Market assessments</a></li>
-
-
       <li><a href="services.html">Industry research</a></li>
     </ul>
   </section>
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>contact information: JTechsolution@gmail.com, Phone +254790050001</p>
+  <p>
+    <button id="contact-button">Contact</button>
+  <div id="contact-details" style="display: none;">
+    <p>Email: example@example.com</p>
+    <p>Phone: 123-456-7890</p>
+    <p>Tel: (+76) 90050001</p>
+    <p>Mobile: 620 90050002</p>
+    <p>info(@)JTechsolution.co.ke</p>
+    <p>support(@)Techsolution.co.ke</p>
+    <p>JTS Building, 12th Flr - Nairobi</p>
+    <p>P.O BOX 8080 - 4040 - Nairobi</p>
+  </div>
+  <script>
+    document.getElementById("contact-button").addEventListener("click", function () {
+      var contactDetails = document.getElementById("contact-details");
 
+      if (contactDetails.style.display === "none") {
+        contactDetails.style.display = "block";
+      } else {
+        contactDetails.style.display = "none";
+      }
+    });
+  </script>
+  </p>
   </section>
-
-
 </body>
 
 </html>
