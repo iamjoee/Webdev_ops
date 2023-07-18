@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>eyemax</title>
+        
+        <link rel="icon" type="image/x-icon" href="assets/eyemax">
+        
+        
+    </head>
+    <style>
+        * {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: cream#e0ebee;
+    font-family: sans-serif;
+}
+
+h3 {
+    color: white;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #131720;
+    padding: 10px;
+}
+
+.topnav a{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.topnav .search-container{
+    float: right;
+}
+
+form {
+    background-color: #151f30;
+    width: 300px;
+    height: 43px;
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    all: unset;
+    font: 15px system-ui;
+    color: #ffff;
+    height: 100%;
+    width: 100%;
+    padding: 6px 9px;
+}
+
+.thumbnail {
+    height: 200px;
+    width: 100;
+    border-radius: 19px;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px 10px;
+}
+
+.card {
+    border-radius: 19px;
+    padding: 15px;
+    text-align: center;
+    background-color: #151f30;
+}
+
+#player {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (change as needed) */
+    position: relative;
+  }
+  
+  #player iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+        </style>
+    <body>
+        <div class="topnav">
+            <a class="active" href="#"> Movie Site</a>
+            <div class="search-container">
+                <form role="search" id="form">
+                    <input type="search" id="query" placeholder="Search">
+ 
+                </form>
+
+            </div>
+
+        </div>
+      
+
+        <div id="player"></div>
+        <a href="https://www.youtube.com/watch?v=ZtuFgnxQMrA" target="_blank" id="watch-video">Watch Video</a>
+      
+        
+
+        <script>
+            // Replace 'VIDEO_ID' with the actual YouTube video ID
+const videoId = 'dQw4w9WgXcQ';
+
+// Create the YouTube player
+function createPlayer() {
+  // Load the YouTube API script
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  const firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // Callback function when the YouTube API is ready
+  window.onYouTubeIframeAPIReady = function() {
+    new YT.Player('player', {
+      videoId: videoId,
+      playerVars: {
+        autoplay: 0, // Autoplay disabled
+        modestbranding: 1, // Hide the YouTube logo
+      },
+    });
+  };
+}
+
+// Call the createPlayer function to initialize the YouTube player
+createPlayer();
+
+In this code, the YouTube video is displayed in the #player container using the YouTube embedded player, just like in the previous example. The "Watch Video" link is added below the player, which will open the YouTube video in a new tab when clicked, without redirecting away from the page.
+
+Make sure to replace 'VIDEO_ID' in the JavaScript code with the actual YouTube video ID you want to display.
+User
+display  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Watch Video</a> on page without redirecting you to youtube html css js should be on same page
+ChatGPT
+
+To display a YouTube video on the page without redirecting to YouTube, you can use the YouTube embedded player. Here's an example of how you can achieve that using HTML, CSS, and JavaScript, all on the same page:
+
+html
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Trailer</title>
+  <style>
+    #video-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+    
+    #video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    #watch-video {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <script>
+    // Replace 'VIDEO_ID' with the actual YouTube video ID
+    const videoId = 'dQw4w9WgXcQ';
+
+    // Function to load the YouTube video player
+    function loadVideoPlayer() {
+      const videoContainer = document.getElementById('video-container');
+      const videoPlayer = document.createElement('iframe');
+      videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=0&modestbranding=1`;
+      videoPlayer.setAttribute('frameborder', '0');
+      videoPlayer.setAttribute('allowfullscreen', 'true');
+      videoContainer.appendChild(videoPlayer);
+    }
+
+    // Add click event listener to the "Watch Video" link
+    const watchVideoLink = document.getElementById('watch-video');
+    watchVideoLink.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the link from redirecting
+      
+      // Load the YouTube video player
+      loadVideoPlayer();
+      
+      // Hide the "Watch Video" link
+      watchVideoLink.style.display = 'none';
+    });
+  </script>
+
+  <div id="video-container"></div>
+  <a href="#" id="watch-video">Trailwe</a>
+  <div style="padding-left: 16px;"></div>
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                   
+                    <centre><img src="assets-site/Transformers- Rise of the Beasts 3D.jpg "  class="thumbnail" ></centre>
+                    <p class="movie-description">Returning to the action and spectacle that first captured moviegoers around the world 14 years ago with the original Transformers, Transformers: Rise of the Beasts will take audiences on a ‘90s globetrotting adventure and introduce the Maximals, Predacons </p>
+                    <a href="#" class="button">Book Now</a>
+                    <h3>Transformers- Rise of the Beasts 3D</h3>
+                </div>
+            </div>
+            <div class="w3-container">
+                
+                
+                <img src="img_lights.jpg" alt="Lights" class="w3-image" width="600" height="400">
+               
+              </div>
+        </div>
+</body>
+</html>
+
+
+        </script>
+
+        
+    </body>
+</html>

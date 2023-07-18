@@ -2,10 +2,20 @@
 
 <html>
     <head>
-        <title>Site</title>
+        <title>eyemax</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="assets/eyemax">
         
     </head>
+    <header>
+        <div class="logo">
+          <a href="index.html"> <img src="assets/" alt="eyemax logo "></a>
+        </div>
+        <div class="header-text">
+          <p>eyemax</p>
+          <p>Experience of a lifetime</p>
+        </div>
+        </header>
     <body>
         <div class="topnav">
             <a class="active" href="#"> Movie Site</a>
@@ -22,13 +32,28 @@
         <div class="row">
             <div class="column">
                 <div class="card">
-                    <centre><img src="assets-site/captain-america-civil-war.jpg "  class="thumbnail" ></centre>
-                    <h3>Movie title</h3>
+                   
+                    <centre><img src="assets-site/Transformers- Rise of the Beasts 3D.jpg "  class="thumbnail" ></centre>
+                    <p class="movie-description">Returning to the action and spectacle that first captured moviegoers around the world 14 years ago with the original Transformers, Transformers: Rise of the Beasts will take audiences on a ‘90s globetrotting adventure and introduce the Maximals, Predacons </p>
+                    <a href="#" class="button">Book Now</a>
+                    <h3>Transformers- Rise of the Beasts 3D</h3>
                 </div>
             </div>
-
+            <div class="w3-container">
+                
+                
+                <img src="img_lights.jpg" alt="Lights" class="w3-image" width="600" height="400">
+               
+              </div>
         </div>
-        <script src="jquery.min.js"></script>
+
+
+        <div id="player"></div>
+        <a href="https://www.youtube.com/watch?v=ZtuFgnxQMrA" target="_blank" id="watch-video">Watch Video</a>
+      
+        
+
+        <script src="script.js"></script>
         <script>
             $(document).ready(function(){
                 $.ajax({

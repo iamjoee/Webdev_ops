@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Messaging</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  #message-container {
+    border: 1px solid #ccc;
+    height: 300px;
+    overflow-y: scroll;
+    padding: 10px;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+  }
+  
+  .message .user {
+    font-weight: bold;
+  }
+  
+  .message .timestamp {
+    font-size: 0.8em;
+    color: #888;
+  }
+  
+  .message .text {
+    margin-top: 5px;
+  }
+  
+  .message-input {
+    margin-top: 20px;
+  }
+  
+  .message-input input[type="text"] {
+    padding: 5px;
+    margin-right: 5px;
+  }
+  
+  .message-input button {
+    padding: 5px 10px;
+  }
+  
+  </style>
+</head>
+<body>
+  <div id="message-container"></div>
+
+  <div class="message-input">
+    <input type="text" id="user-name" placeholder="Your Name">
+    <input type="text" id="message-text" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script >
+      function sendMessage() {
+  var userNameInput = document.getElementById('user-name');
+  var messageTextInput = document.getElementById('message-text');
+
+  var userName = userNameInput.value;
+  var messageText = messageTextInput.value;
+
+  if (userName.trim() === '' || messageText.trim() === '') {
+    return;
+  }
+
+  var messageContainer = document.getElementById('message-container');
+  var messageElement = document.createElement('div');
+  messageElement.classList.add('message');
+
+  var userElement = document.createElement('span');
+  userElement.classList.add('user');
+  userElement.textContent = userName;
+
+  var timestampElement = document.createElement('span');
+  timestampElement.classList.add('timestamp');
+  timestampElement.textContent = getCurrentTimestamp();
+
+  var textElement = document.createElement('div');
+  textElement.classList.add('text');
+  textElement.textContent = messageText;
+
+  messageElement.appendChild(userElement);
+  messageElement.appendChild(timestampElement);
+  messageElement.appendChild(textElement);
+
+  messageContainer.appendChild(messageElement);
+
+  
+  userNameInput.value = '';
+  messageTextInput.value = '';
+
+ 
+  messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+function getCurrentTimestamp() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+
+  return hours + ':' + minutes + ':' + seconds;
+}
+
+  </script>
+</body>
+</html>

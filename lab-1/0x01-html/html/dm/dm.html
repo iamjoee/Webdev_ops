@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Entry Management</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Register</h1>
+  </header>
+
+  <main>
+    <section class="entry-form">
+      
+     
+        <form id="new-entry-form" action="http://localhost:3000/register" method="POST">
+
+        <label for="firstname">First name</label>
+        <input type="text" id="firstname" required>
+        <label for="secondname">Secondname</label>
+        <input type="text" id="secondname" required>
+        <input for="phonenumber" id="phonenumber" required>
+        <label type="number">phonenumber</label>
+        <input type="text" id="email" required>
+        <label for="email">email</label>
+        <label for="organization">Organization</label>
+        <input type="text" id="organization" required>
+        <button type="submit">Add Entry</button>
+      </form>
+    </section>
+
+    <section class="entry-list">
+      <h2>Entries</h2>
+      <div id="entries-container">
+        <table id="entry-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>First name</th>
+              <th>Second name</th>
+              <th>phone number</th>
+              <th>email</th>
+              <th>Organization</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="entry-body">
+            <!-- Entry rows will be dynamically added here -->
+          </tbody>
+        </table>
+      </div>
+      <div id="total-entries"></div>
+    </section>
+  </main>
+
+  <script>
+    // Entry data array
+    let entries = [];
+
+    // Add new entry
+    function addEntry() {
+      const firstname = document.getElementById('firstname').value;
+      const secondname = document.getElementById('secondname').value;
+      const phonenumber = document.getElementById('phonenumber').value;
+      const email = document.getElementById('email').value;
+      const organization = document.getElementById('organization').value;
+
+      if (firstname && secondname && organization) {
+        entries.push({ firstname, secondname, email, organization, phonenumber });
+        updateEntryTable();
+        document.getElementById('new-entry-form').reset();
+      }
+    } 
+
+    // Delete entry by index
+    function deleteEntry(index) {
+      entries.splice(index, 1);
+      updateEntryTable();
+    }
+    
+    // Edit entry by index
+    function editEntry(index) {
+      // Implement your edit logic here
+      // You can access the entry object using entries[index]
+      // Update the entry and call updateEntryTable() to reflect the changes
+      console.log('Edit entry at index:', index);
+    }
+
+    // Update the entry table
+    function updateEntryTable() {
+      const entryTable = document.getElementById('entry-body');
+      entryTable.innerHTML = '';
+
+      for (let i = 0; i < entries.length; i++) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <td>${i + 1}</td>
+        
+          <td>${entries[i].firstname}</td>
+          <td>${entries[i].secondname}</td>
+          <td>${entries[i].phonenumber}</td>
+          <td>${entries[i].email}</td>
+          <td>${entries[i].organization}</td>
+          <td>${entries[i].status}</td>
+            <button onclick="editEntry(${i})">Edit</button>
+            <button onclick="deleteEntry(${i})">Delete</button>
+            <button onclick="activateEntry(${i})">Activate</button>
+            
+          </td>
+        `;
+        entryTable.appendChild(row);
+      }
+
+      updateTotalEntries();
+    }
+
+    // Update the total entries count
+    function updateTotalEntries() {
+      const totalEntries = document.getElementById('total-entries');
+      totalEntries.innerHTML = `Total Entries: ${entries.length}`;
+    }
+
+    // Handle form submission
+    document.getElementById('new-entry-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      addEntry();
+    });
+
+    // Initial update of entry table
+    updateEntryTable();
+  </script>
+</body>
+</html>

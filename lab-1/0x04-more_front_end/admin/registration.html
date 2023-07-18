@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<header>
+  <div class="logo">
+    <a href="admin-dashboard.html"> <img src="assets/admin.jpg" alt="admin Logo "></a>
+  </div>
+  <div class="header-text">
+    <p>ds</p>
+    <p>ds paragraph</p>
+  </div>
+</header>
+<nav>
+  <ul>
+    <li><a href="admin-dashboard.html">Dashboard</a></li>
+    <!-- <li><a href="Stats.html">Stats</a></li> -->
+    <li><a href="appointment.html">Analytics</a></li>
+    <li><a href="Analytics.html">Services</a></li>
+    <li><a href="Reports.html">Reports</a></li>
+    <li><a href="registration.html">Registration</a></li>
+    <li><a href="Users.html">Users</a></li>
+    <li><a href="Settings">Settings</a></li>
+  </ul>
+</nav>
+<form class="search-form">
+  <input type="text" placeholder="Search..." class="search-input">
+  <button type="submit" class="search-button">Search</button>
+</form>
+<div class="container">
+  <img src="assets/oakwoodbackground.png" alt="Dashboard">
+</div>
+<main>
+  <section class="entry-form">
+    <h2>Add New Entry</h2>
+    <form id="new-entry-form">
+      <label for="firstname">First name</label>
+      <input type="text" id="firstname" required>
+      <label for="secondname">Secondname</label>
+      <input type="text" id="secondname" required>
+      <input for="phonenumber" id="phonenumber" required>
+      <label type="number">phonenumber</label>
+      <input type="text" id="email" required>
+      <label for="email">email</label>
+      <label for="organization">Organization</label>
+      <input type="text" id="organization" required>
+      <button type="submit">Add Entry</button>
+    </form>
+  </section>
+  <section class="entry-list">
+    <h2>Entries</h2>
+    <div id="entries-container">
+      <table id="entry-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First name</th>
+            <th>Second name</th>
+            <th>phone number</th>
+            <th>email</th>
+            <th>Organization</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="entry-body">
+          <!-- Entry rows will can be added here -->
+        </tbody>
+      </table>
+    </div>
+    <div id="total-entries"></div>
+  </section>
+</main>
+<script>
+
+  let entries = [];
+
+  function addEntry() {
+    const firstname = document.getElementById('firstname').value;
+    const secondname = document.getElementById('secondname').value;
+    const phonenumber = document.getElementById('phonenumber').value;
+    const email = document.getElementById('email').value;
+    const organization = document.getElementById('organization').value;
+
+    if (firstname && secondname && organization) {
+      entries.push({ firstname, secondname, email, organization, phonenumber });
+      updateEntryTable();
+      document.getElementById('new-entry-form').reset();
+    }
+  }
+
+  function updateEntryTable() {
+    const entryTable = document.getElementById('entry-body');
+    entryTable.innerHTML = '';
+
+    for (let i = 0; i < entries.length; i++) {
+      const row = document.createElement('tr');
+
+      row.innerHTML = `
+      <td>${i + 1}</td> 
+        <td>${entries[i].firstname}</td>
+        <td>${entries[i].secondname}</td>
+        <td>${entries[i].phonenumber}</td>
+        <td>${entries[i].email}</td>
+        <td>${entries[i].organization}</td>
+        <td>${entries[i].status}</td>
+          <button onclick="editEntry(${i})">Edit</button>
+          <button onclick="deleteEntry(${i})">Delete</button>
+          <button onclick="activateEntry(${i})">Activate</button>  
+        </td>
+      `;
+      entryTable.appendChild(row);
+    }
+    updateTotalEntries();
+  }
+
+  function updateTotalEntries() {
+    const totalEntries = document.getElementById('total-entries');
+    totalEntries.innerHTML = `Total Entries: ${entries.length}`;
+  }
+
+  document.getElementById('new-entry-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    addEntry();
+  });
+
+  updateEntryTable();
+</script>
+</body>
+
+</html>

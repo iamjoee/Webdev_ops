@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Trailer</title>
+  <style>
+    #video-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    }
+    
+    #video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    #watch-video {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="video-container"></div>
+  <a href="#" id="watch-video">Watch Video</a>
+
+  <script>
+    // Replace 'VIDEO_ID' with the actual YouTube video ID
+    const videoId = 'ZtuFgnxQMrA';
+
+    // Function to load the YouTube video player
+    function loadVideoPlayer() {
+      const videoContainer = document.getElementById('video-container');
+      const videoPlayer = document.createElement('iframe');
+      videoPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=0&modestbranding=1`;
+      videoPlayer.setAttribute('frameborder', '0');
+      videoPlayer.setAttribute('allowfullscreen', 'true');
+      videoContainer.appendChild(videoPlayer);
+    }
+
+    // Add click event listener to the "Watch Video" link
+    const watchVideoLink = document.getElementById('watch-video');
+    watchVideoLink.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the link from redirecting
+      
+      // Load the YouTube video player
+      loadVideoPlayer();
+      
+      // Hide the "Watch Video" link
+      watchVideoLink.style.display = 'none';
+    });
+  </script>
+</body>
+</html>
